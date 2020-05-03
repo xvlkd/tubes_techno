@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -15,6 +14,7 @@
                         Title can't be empty!
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="genre" style="color: white">Genre</label>
                     <input type="text" class="form-control @error('genre') is-invalid @enderror" id="genre" placeholder="put your genre here" name="genre" value="{{ old('genre') }}">
@@ -22,6 +22,7 @@
                         Genre can't be empty!
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="type" style="color: white">Type</label><br>
                     <select name="type" id="type" class="btn btn-sm dropdown-toggle" style="background:white; width:200px">
@@ -29,6 +30,7 @@
                         <option value="TV Show">TV Show</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="rating" style="color: white">Rating</label><br>
                     <select name="rating" id="rating" class="btn btn-sm dropdown-toggle" style="background:white; width:200px">
@@ -44,6 +46,7 @@
                         <option value="10">10</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
                     <label for="review" style="color: white">Review</label>
                     <input type="text" class="form-control @error('review') is-invalid @enderror" id="review" placeholder="put your review here" name="review" value="{{ old('review') }}">

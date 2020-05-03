@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Review;
@@ -9,23 +8,19 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-
     public function index()
     {
         $review = Review::all();
         return view('review.index', compact('review'));
     }
-
-    public function show(Review $review)
-    {
-        return view('review.show', compact('review'));
-    }
-
     public function create()
     {
         return view('review.create');
     }
-
+    public function show(Review $review)
+    {
+        return view('review.show', compact('review'));
+    }
     public function store(Request $request)
     {
         $request->validate([

@@ -1,7 +1,5 @@
 @extends('layout.home')
-
 @section('title', 'Form Ubah Data Produk')
-
 @section('container')
 <div class="container">
     <div class="row">
@@ -18,6 +16,7 @@
                         Nama Produk tidak boleh kosong.
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="jumlah_stok_produk">Jumlah Stok</label>
                     <input type="number" class="form-control @error('jumlah_stok_produk') is-invalid @enderror" id="jumlah_stok_produk" placeholder="Masukan Jumlah Stok" name="jumlah_stok_produk" value="{{ $produk->jumlah_stok_produk }}">
@@ -25,6 +24,7 @@
                         Jumlah Stok tidak boleh kosong.
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="stok_minimum_produk">stok Minimum</label>
                     <input type="number" class="form-control @error('stok_minimum_produk') is-invalid @enderror" id="stok_minimum_produk" placeholder="Masukan Stok Minimum" name="stok_minimum_produk" value="{{ $produk->stok_minimum_produk }}">
@@ -32,6 +32,7 @@
                         Stok Minimum tidak boleh kosong.
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="harga_produk">Harga Produk</label>
                     <input type="number" class="form-control @error('harga_produk') is-invalid @enderror" id="harga_produk" placeholder="Masukan Harga Produk" name="harga_produk" value="{{ $produk->harga_produk }}">
@@ -42,6 +43,7 @@
                 <div>
                     <img src="/gambar/{{$produk->gambar}}" style="width:200px">
                 </div>
+
                 <div class="form-group">
                     <label for="gambar">Gambar Produk</label>
                     <br>
