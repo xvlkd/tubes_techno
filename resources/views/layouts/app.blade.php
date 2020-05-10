@@ -102,6 +102,7 @@
                                 <a class="dropdown-item" href="{{ url('/home') }}">Home</a>
                                 <a class="dropdown-item" href="{{ url('/review') }}">Review</a>
                                 <a class="dropdown-item" href="{{ url('/spin')}}">Spin</a>
+                                <a class="dropdown-item" href="{{ url('/customer')}}">Customer</a>
                                 <!-- <a class="dropdown-item" href="{{ url('/customsearch')}}">CustomSearch</a> -->
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

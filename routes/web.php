@@ -31,6 +31,9 @@ Route::resource('review', 'ReviewController');
 Route::resource('spin', 'SpinController');
 Route::resource('customsearch', 'CustomSearchController');
 
+// PDF
+Route::get('/customer', 'CustomerController@index');
+Route::get('/customer/cetak_pdf', 'CustomerController@cetak_pdf');
 /*Route::get('/review','ReviewController@index');
 Route::get('/review/create','ReviewController@create');
 Route::get('/review/{review}','ReviewController@show');
