@@ -28,6 +28,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 // CRUDS REVIEW
 Auth::routes();
 Route::resource('review', 'ReviewController');
+Route::resource('spin', 'SpinController');
+Route::resource('customsearch', 'CustomSearchController');
 
 /*Route::get('/review','ReviewController@index');
 Route::get('/review/create','ReviewController@create');
@@ -38,3 +40,4 @@ Route::get('/review/{review}/edit','ReviewController@edit');
 Route::patch('/review/{review}','ReviewController@update');*/
 
 Route::get('/searchReview', 'ReviewController@search');
+Route::get('/searchSpin', 'SpinController@search');
