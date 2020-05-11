@@ -31,8 +31,14 @@ Route::resource('review', 'ReviewController');
 Route::resource('spin', 'SpinController');
 Route::resource('customsearch', 'CustomSearchController');
 
-// PDF
+// Customer & PDF
 Route::get('/customer', 'CustomerController@index');
+Route::get('/customer/tambah','CustomerController@tambah');
+Route::post('/customer/store','CustomerController@store');
+Route::get('/customer/edit/{id}','CustomerController@edit');
+Route::post('/customer/update','CustomerController@update');
+Route::get('/customer/hapus/{id}','CustomerController@hapus');
+Route::get('/customer/cari','CustomerController@cari');
 Route::get('/customer/cetak_pdf', 'CustomerController@cetak_pdf');
 /*Route::get('/review','ReviewController@index');
 Route::get('/review/create','ReviewController@create');
