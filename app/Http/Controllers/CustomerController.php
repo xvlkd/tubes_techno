@@ -97,6 +97,6 @@ class CustomerController extends Controller
     	$customer = Customer::all();
  
     	$pdf = PDF::loadview('customer_pdf',['customer'=>$customer]);
-    	return $pdf->download('laporan-customer-pdf');
+    	return $pdf->download('MiFi Customer Data Report');
     }
 }

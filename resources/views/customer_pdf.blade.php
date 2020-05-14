@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan Data Customer MiFi</title>
+	<title>MiFi Customer Data Report</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -12,18 +12,19 @@
 		}
 	</style>
 	<center>
-		<h5>Laporan Data Customer MiFi</h4>
+	<br><br>
+		<h5>MiFi Customer Data Report</h4>
 	</center>
-
+		<br><br><br>
 	<table class='table table-bordered'>
 		<thead>
 			<tr>
 				<th>No</th>
-				<th>Nama</th>
+				<th>Name</th>
 				<th>Email</th>
-				<th>Alamat</th>
-				<th>Telepon</th>
-				<th>Pekerjaan</th>
+				<th>Address</th>
+				<th>Telephone (+62)</th>
+				<th>Job</th>
 			</tr>
 		</thead>
 		<tbody>

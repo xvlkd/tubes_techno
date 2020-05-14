@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan Data Customer MiFi</title>
+	<title>MiFi Customer Data</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -9,7 +9,7 @@
 	<div class="container">
 		<center>
 		<br>
-			<h4>Laporan Data Customer MiFi</h4>
+			<h4>MiFi Customer Data</h4>
 		</center>
 		<br/>
 		<div class="row">
@@ -29,12 +29,12 @@
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Nama</th>
+					<th>Name</th>
 					<th>Email</th>
-					<th>Alamat</th>
-					<th>Telepon (+62)</th>
-					<th>Pekerjaan</th>
-					<th>Opsi</th>
+					<th>Address</th>
+					<th>Telephone (+62)</th>
+					<th>Job</th>
+					<th>Option</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,7 +50,7 @@
 					<td>
 					<a href="/customer/edit/{{ $p->id }}">Edit</a>
 					|
-					<a href="/customer/hapus/{{ $p->id }}">Hapus</a>
+					<a href="/customer/hapus/{{ $p->id }}">Delete</a>
 			</td>
 				</tr>
 				@endforeach
@@ -58,11 +58,11 @@
 			<br><br>
 		</table>
 		<br><br>
-		<a href="/customer/tambah" class="btn btn-primary" target="_blank"> Tambah Customer Baru</a>
-		<a href="/customer/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
+		<a href="/customer/tambah" class="btn btn-primary" target="_blank"> Add New Customer</a>
+		<a href="/customer/cetak_pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
 		<br><br>
 		<br>
-	<a href="/review"> Kembali </a>
+	<a href="/review"> Back </a>
 	</div>
 	
 </body>
