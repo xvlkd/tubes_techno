@@ -69,6 +69,6 @@ class ReviewController extends Controller
     	$review = Review::all();
  
     	$pdf = PDF::loadview('/review/review_pdf',['review'=>$review]);
-    	return $pdf->download('laporan-review-pdf');
+    	return $pdf->download('MiFi Review Data Report');
     }
 }

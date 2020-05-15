@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>data film</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">//
+	<title>MiFi Review Report</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 	<style type="text/css">
@@ -13,19 +13,19 @@
 		
 	</style>
 	<center>
-		<h5>data film</h4>
+		<br><h5>MiFi Review Report</h4><br>
 	</center>
-
+		<br>
 	<table class='table table-bordered'>
 		<thead>
 			<tr>
-				<th>no</th>
-				<th>title</th>
-				<th>genre</th>
-				<th>type</th>
-				<th>rating</th>
-				<th>review</th>
-				<th>poster</th>
+				<th>No</th>
+				<th>Title</th>
+				<th>Genre</th>
+				<th>Type</th>
+				<th>Rating</th>
+				<th>Review</th>
+				<!-- <th>Image</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -33,12 +33,12 @@
 			@foreach($review as $p)
 			<tr>
 				<td>{{ $i++ }}</td>
-				<td>{{$p->title}}</td>
+				<td>{{$p->name_film}}</td>
 				<td>{{$p->genre}}</td>
 				<td>{{$p->type}}</td>
 				<td>{{$p->rating}}</td>
 				<td>{{$p->review}}</td>
-				<td><img src="../../picture{{$p->picture}}"</td>
+				<!-- <td><img src="/picture/{{$p->picture}}"></td> -->
 			</tr>
 			@endforeach
 		</tbody>
