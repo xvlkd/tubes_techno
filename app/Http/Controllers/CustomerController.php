@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Customer;
 use Illuminate\Support\Facades\DB;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class CustomerController extends Controller
 {
@@ -97,6 +97,6 @@ class CustomerController extends Controller
     	$customer = Customer::all();
  
     	$pdf = PDF::loadview('customer_pdf',['customer'=>$customer]);
-    	return $pdf->download('MiFi Customer Data Report');
+    	return $pdf->download('MiFi Customer Data Report.pdf');
     }
 }

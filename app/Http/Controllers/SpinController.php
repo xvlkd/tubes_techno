@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Review;
@@ -10,7 +11,6 @@ class SpinController extends Controller
 {
     public function index(Request $request)
     {
-        
         $review = Review::all();
         return view('spin.index', compact('review'));
     }
@@ -48,8 +48,8 @@ class SpinController extends Controller
 
     public function search(Request $request)
     {
-        $search  = $request->get('genre','rating');
- 
+        $search  = $request->get('genre', 'rating');
+
         $review = DB::table('review')
             ->where([
                 ['genre', 'like', '%' . $search . '%']
@@ -58,38 +58,32 @@ class SpinController extends Controller
                 ['rating', 'like', '%' . $search . '%']
             ])
             ->get();
-            
+
         return view('spin.index', compact('review'));
     }
     public function indexx(Request $request)
     {
-        
-        if(request()->ajax())
-        {
-            if(!empty($request->filter_genre))
-            {
+
+        if (request()->ajax()) {
+            if (!empty($request->filter_genre)) {
                 $review = DB::table('review')
-                ->select('nama_film', 'review', 'genre', 'rating', 'type', 'picture')
-                ->where('genre',$request->filter_genre)
-                ->where('rating',$request->filter_country)
-                ->get();
-            }
-            else
-            {
+                    ->select('nama_film', 'review', 'genre', 'rating', 'type', 'picture')
+                    ->where('genre', $request->filter_genre)
+                    ->where('rating', $request->filter_country)
+                    ->get();
+            } else {
                 $review = DB::table('review')
                     ->select('nama_film', 'review', 'genre', 'rating', 'type', 'picture')
                     ->get();
             }
             return datatables()->of($review)->make(true);
         }
-        $genre = DB:: table('review')
-                    ->select('genre')
-                    ->groupBy('genre')
-                    ->orderBy('genre','ASC')
-                    ->get();
+        $genre = DB::table('review')
+            ->select('genre')
+            ->groupBy('genre')
+            ->orderBy('genre', 'ASC')
+            ->get();
         $review = Review::all();
-        return view('spin.index',compact('genre','review'));
+        return view('spin.index', compact('genre', 'review'));
     }
-
-
 }

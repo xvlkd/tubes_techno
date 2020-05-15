@@ -1,11 +1,14 @@
 @extends('layouts.app')
+
+@section('title','Form Add Review')
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-6">
             <a href="/review" class="card-link">Back</a>
             <h1 class="mt-4">Form Add review</h1>
-            <form method="POST" action="/review">
+            <form method="POST" action="/review" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name_film" style="color: white">Title</label>

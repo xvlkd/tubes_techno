@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Review;
@@ -29,9 +30,12 @@ class ReviewController extends Controller
             'genre' => 'required',
             'type' => 'required',
             'rating' => 'required',
-            'review' => 'required',
-            'picture' => 'required',
+            'review' => 'required'
         ]);
+
+        $tempPict = DB::table('review')->where([
+            ['name_film', 'like', '%' . $request->name_film . '%'],
+        ])->first();
 
         $review = new Review;
         $review->name_film = $request->name_film;
@@ -39,7 +43,11 @@ class ReviewController extends Controller
         $review->type = $request->type;
         $review->rating = $request->rating;
         $review->review = $request->review;
-        $review->picture = NULL;
+        if ($tempPict->picture != NULL) {
+            $review->picture = $tempPict->picture;
+        } else {
+            $review->picture = ('public/picture/default-image.jpg');
+        }
 
         $review->save();
 
@@ -66,9 +74,9 @@ class ReviewController extends Controller
     }
     public function cetak_pdf()
     {
-    	$review = Review::all();
- 
-    	$pdf = PDF::loadview('/review/review_pdf',['review'=>$review]);
-    	return $pdf->download('laporan-review-pdf');
+        $review = Review::all();
+
+        $pdf = PDF::loadview('/review/review_pdf', compact('review'));
+        return $pdf->download('laporan-review-pdf.pdf');
     }
 }

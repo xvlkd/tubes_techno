@@ -1,5 +1,7 @@
 @extends('layout.home')
-@section('title', 'Form Ubah Data Produk')
+
+@section('title', 'Form Edit Review')
+
 @section('container')
 <div class="container">
     <div class="row">
@@ -16,7 +18,7 @@
                         Nama Produk tidak boleh kosong.
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="jumlah_stok_produk">Jumlah Stok</label>
                     <input type="number" class="form-control @error('jumlah_stok_produk') is-invalid @enderror" id="jumlah_stok_produk" placeholder="Masukan Jumlah Stok" name="jumlah_stok_produk" value="{{ $produk->jumlah_stok_produk }}">
