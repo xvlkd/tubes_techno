@@ -25,7 +25,6 @@
 				<th>type</th>
 				<th>rating</th>
 				<th>review</th>
-				<th>poster</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,12 +32,11 @@
 			@foreach($review as $p)
 			<tr>
 				<td>{{ $i++ }}</td>
-				<td>{{$p->title}}</td>
+				<td>{{$p->name_film}}</td>
 				<td>{{$p->genre}}</td>
 				<td>{{$p->type}}</td>
 				<td>{{$p->rating}}</td>
 				<td>{{$p->review}}</td>
-				<td><img src="../../picture{{$p->picture}}"</td>
 			</tr>
 			@endforeach
 		</tbody>
