@@ -1,24 +1,40 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="container">
+<div class="container ">
     <div class="row">
         <div class="col-6">
-            <h4><a href="/review" class="card-link">Back</a></h4>
-            <h1 class="mt-4">Detail Review</h1>
-            <div class="card">
-                <div class="card-header" style="background-color: black">
-                    <img src="/picture/{{$review->picture}}" style="height: 160px;">
+            <form action="/searchReview" method="get">
+                <div class="input-group">
+                    <input type="search" name="search" class="form-control">
+                    <span class="input-group-prepend">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </span>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{$review->name_film}}</h5>
-                    <h6 class="card-subtitle mb-4 text-muted">Genre : {{$review->genre}}</h6>
-                    <h6 class="card-subtitle mb-4 text-muted">Rating : {{$review->rating}}</h6>
-                    <h6 class="card-subtitle mb-4 text-muted">Type : {{$review->type}}</h6>
-                    <h6 class="card-subtitle mb-4 text-muted">Review : <br> {{$review->review}}</h6>
-                    <a href="/review/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
+            </form>
+        </div>
+    </div>
+    <a href="/review/create" class="btn btn-primary my-3">Add Review</a>
+    <a href="/index/cetak_pdf" class="btn btn-primary" target="_blank">cetak PDF</a>
+    <br></br>
+    <div class="row row-cols-2 row-cols-md-3">
+        @foreach($review as $review)
+        <div class="row">
+            <div class="col">
+                <div class="card text-white bg-dark mb-3" style="width: 300px;">
+                    <div class="card-header" style="background-color: black">
+                        <img src="/picture/{{$review->picture}}" style="height: 160px;">
+                    </div>
+                    <div class="card-body" style="text-align: left; background-color: black">
+                        <h5 class="card-title" style="text-align: center">{{$review->name_film}}</h5>
+                        <p class="card-text">Genre : {{$review->genre}}</p>
+                        <p class="card-text">Rating : {{$review->rating}}</p>
+                        <a href="/review/{{$review->id}}" class="badge badge-info" style="background:#df7861;">Detail</a>
+                    </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 </div>
 @endsection
