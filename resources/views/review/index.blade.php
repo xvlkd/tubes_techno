@@ -15,6 +15,7 @@
         </div>
     </div>
     <a href="/review/create" class="btn btn-primary my-3">Add Review</a>
+    <a href="/index/cetak_pdf" class="btn btn-primary" target="_blank">cetak PDF</a>
     <br></br>
     <div class="row row-cols-2 row-cols-md-3">
         @foreach($review as $review)
