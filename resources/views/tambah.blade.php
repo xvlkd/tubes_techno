@@ -6,13 +6,13 @@
         <div class="col-6">
 <html>
 <head>
-	<title>Tambah Data Customer</title>
+	<title>Add Customer Data</title>
 </head>
 <body>
 
-	<h3>Data Customer</h3>
+	<h3>Add Customer Data</h3>
 
-	<a href="/customer"> Kembali</a>
+	<a href="/customer"> Back</a>
 	
 	<br/>
 	<br/>
@@ -20,45 +20,45 @@
 	<form action="/customer/store" method="post">
 		{{ csrf_field() }}
 		<div class="form-group">
-			<label for="nama" style="color: white">Nama</label>
-			<input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="masukkan nama anda disini" name="nama" value="{{ old('nama') }}"> <br/>
+			<label for="nama" style="color: white">Name</label>
+			<input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="put your name here" name="nama" value="{{ old('nama') }}"> <br/>
 			<div class="invalid-feedback">
-                Nama Tidak Boleh Kosong!
+                Name can't be empty!
             </div>
 		</div>
 
 		<div class="form-group">
         <label for="email" style="color: white">Email</label>
-			<input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="masukkan email anda disini" name="email" value="{{ old('email') }}"> <br/>
+			<input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="put your email here" name="email" value="{{ old('email') }}"> <br/>
 			<div class="invalid-feedback">
-                Email Tidak Boleh Kosong!
+                Email can't be empty!
             </div>
 		</div>
 
 		<div class="form-group">
-		<label for="alamat" style="color: white">Alamat</label>
-			<input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="masukkan alamat anda disini" name="alamat" value="{{ old('alamat') }}"> <br/>
+		<label for="alamat" style="color: white">Address</label>
+			<input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="put your address here" name="alamat" value="{{ old('alamat') }}"> <br/>
 			<div class="invalid-feedback">
-                Alamat Tidak Boleh Kosong!
+                Address can't be empty!
             </div>
 		</div>
 
 		<div class="form-group">
-		<label for="telepon" style="color: white">Telepon</label>
-			<input type="number" class="form-control @error('telepon') is-invalid @enderror" id="telepon" placeholder="masukkan nomor telepon anda disini" name="telepon" value="{{ old('telepon') }}"> <br/>
+		<label for="telepon" style="color: white">Telephone</label>
+			<input type="number" class="form-control @error('telepon') is-invalid @enderror" id="telepon" placeholder="put your telephone number here" name="telepon" value="{{ old('telepon') }}"> <br/>
 			<div class="invalid-feedback">
-                Telepon Tidak Boleh Kosong!
+                Telephoe number can't be empty!
             </div>
 		</div>
 
 		<div class="form-group">
-		<label for="pekerjaan" style="color: white">Pekerjaan</label>
-			<input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" placeholder="masukkan peekrjaan anda disini" name="pekerjaan" value="{{ old('pekerjaan') }}"> <br/>
+		<label for="pekerjaan" style="color: white">Job</label>
+			<input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" placeholder="put your job here" name="pekerjaan" value="{{ old('pekerjaan') }}"> <br/>
 			<div class="invalid-feedback">
-                Pekerjaan Tidak Boleh Kosong!
+                Job can't be empty!
             </div>		
 			</div>
-		<input type="submit" value="Simpan Data" class="btn btn-primary" target="_blank">
+		<input type="submit" value="Add Customer" class="btn btn-primary" target="_blank">
 	</form>
 
 </body>

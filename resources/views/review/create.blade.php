@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h4><a href="/review" class="card-link">Kembali</a></h4>
+            <a href="/review" class="card-link">Back</a>
             <h1 class="mt-4">Form Add review</h1>
             <form method="POST" action="/review">
                 @csrf
