@@ -30,6 +30,7 @@ Auth::routes();
 Route::resource('review', 'ReviewController');
 Route::resource('spin', 'SpinController');
 Route::resource('customsearch', 'CustomSearchController');
+Route::get('/index/cetak_pdf', 'ReviewController@cetak_pdf');
 
 // Customer & PDF
 Route::get('/customer', 'CustomerController@index');
@@ -40,13 +41,14 @@ Route::post('/customer/update','CustomerController@update');
 Route::get('/customer/hapus/{id}','CustomerController@hapus');
 Route::get('/customer/cari','CustomerController@cari');
 Route::get('/customer/cetak_pdf', 'CustomerController@cetak_pdf');
-/*Route::get('/review','ReviewController@index');
+
+Route::get('/review','ReviewController@index');
 Route::get('/review/create','ReviewController@create');
 Route::get('/review/{review}','ReviewController@show');
 Route::post('/review','ReviewController@store');
 Route::delete('/review/{review}','ReviewController@destroy');
 Route::get('/review/{review}/edit','ReviewController@edit');
-Route::patch('/review/{review}','ReviewController@update');*/
+Route::patch('/review/{review}','ReviewController@update');
 
 Route::get('/searchReview', 'ReviewController@search');
 Route::get('/searchSpin', 'SpinController@search');

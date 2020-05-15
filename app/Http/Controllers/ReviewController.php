@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Review;
 use Illuminate\Http\Request;
+use PDF;
 
 class ReviewController extends Controller
 {
@@ -62,5 +63,12 @@ class ReviewController extends Controller
             ])
             ->get();
         return view('review.index', compact('review'));
+    }
+    public function cetak_pdf()
+    {
+    	$review = Review::all();
+ 
+    	$pdf = PDF::loadview('/review/review_pdf',['review'=>$review]);
+    	return $pdf->download('laporan-review-pdf');
     }
 }
