@@ -15,7 +15,7 @@
                     <h6 class="card-subtitle mb-4 text-muted">Rating : {{$review->rating}}</h6>
                     <h6 class="card-subtitle mb-4 text-muted">Type : {{$review->type}}</h6>
                     <h6 class="card-subtitle mb-4 text-muted">Review : <br> {{$review->review}}</h6>
-                    <a href="/review/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
+                    <a href="/review/cetak_pdf" class="btn btn-primary" target="_blank">PRINT PDF</a>
                 </div>
             </div>
         </div>
