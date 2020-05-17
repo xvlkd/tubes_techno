@@ -12,8 +12,8 @@ class CustomerController extends Controller
 {
     public function index()
     {
-    	$customer = Customer::all();
-    	return view('customer',['customer'=>$customer]);
+        $customer = Customer::all();
+        return view('customer', ['customer' => $customer]);
     }
 
     public function tambah()
@@ -40,20 +40,18 @@ class CustomerController extends Controller
 
         $customer->save();
         return redirect('/customer')->with('status', 'successfully added a new customer!');
-    
     }
 
     public function edit($id)
     {
-        $customer = DB::table('customer')->where('id',$id)->get();
-        
-        return view('edit',['customer'=>$customer])->with('status', 'successfully edited a new customer!');
-    
+        $customer = DB::table('customer')->where('id', $id)->get();
+
+        return view('edit', ['customer' => $customer])->with('status', 'successfully edited a new customer!');
     }
 
     public function update(Request $request)
     {
-       $customer = DB::table('customer')->where('id',$request->id)->update([
+        $customer = DB::table('customer')->where('id', $request->id)->update([
             'nama' => $request->nama,
             'email' => $request->email,
             'alamat' => $request->alamat,
@@ -62,41 +60,59 @@ class CustomerController extends Controller
         ]);
         // alihkan halaman ke halaman pegawai
         return redirect('/customer');
-    
     }
 
     public function hapus($id)
     {
-        $customer = DB::table('customer')->where('id',$id)->delete();
-            
+        $customer = DB::table('customer')->where('id', $id)->delete();
+
         return redirect('/customer');
     }
- 
+
     public function cari(Request $request)
     {
         $cari  = $request->cari;
         $customer = DB::table('customer')->where([
             ['nama', 'like', '%' . $cari . '%']
+        ])
+            ->orWhere([
+                ['email', 'like', '%' . $cari . '%']
             ])
             ->orWhere([
-            ['email', 'like', '%' . $cari . '%']
+                ['alamat', 'like', '%' . $cari . '%']
             ])
             ->orWhere([
-            ['alamat', 'like', '%' . $cari . '%']
-            ])
-            ->orWhere([
-            ['pekerjaan', 'like', '%' . $cari . '%']
+                ['pekerjaan', 'like', '%' . $cari . '%']
             ])
             ->get();
 
-            return view('customer',['customer' => $customer]);
+        return view('customer', ['customer' => $customer]);
     }
 
     public function cetak_pdf()
     {
-    	$customer = Customer::all();
- 
-    	$pdf = PDF::loadview('customer_pdf',['customer'=>$customer]);
-    	return $pdf->download('MiFi Customer Data Report');
+        $customer = Customer::all();
+
+        $pdf = PDF::loadview('customer_pdf', ['customer' => $customer]);
+        return $pdf->download('MiFi Customer Data Report.pdf');
+    }
+
+    public function search(Request $request)
+    {
+        $search  = $request->get('search');
+        $customer = DB::table('customer')->where([
+            ['nama', 'like', '%' . $search . '%']
+        ])
+            ->orWhere([
+                ['email', 'like', '%' . $search . '%']
+            ])
+            ->orWhere([
+                ['alamat', 'like', '%' . $search . '%']
+            ])
+            ->orWhere([
+                ['pekerjaan', 'like', '%' . $search . '%']
+            ])
+            ->get();
+        return view('customer', compact('customer'));
     }
 }

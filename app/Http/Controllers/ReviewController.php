@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Review;
@@ -29,19 +30,36 @@ class ReviewController extends Controller
             'genre' => 'required',
             'type' => 'required',
             'rating' => 'required',
-            'review' => 'required',
-            'picture' => 'required',
+            'review' => 'required'
         ]);
 
-        $review = new Review;
-        $review->name_film = $request->name_film;
-        $review->genre = $request->genre;
-        $review->type = $request->type;
-        $review->rating = $request->rating;
-        $review->review = $request->review;
-        $review->picture = NULL;
+        $tempPict = DB::table('review')->where([
+            ['name_film', 'like', '%' . $request->name_film . '%'],
+        ])->first();
 
-        $review->save();
+        if ($tempPict != NULL) {
+            $review = new Review;
+            $review->name_film = $request->name_film;
+            $review->genre = $request->genre;
+            $review->type = $request->type;
+            $review->rating = $request->rating;
+            $review->review = $request->review;
+            $review->picture = $tempPict->picture;
+
+            $review->save();
+        } else {
+            $review = new Review;
+            $review->name_film = $request->name_film;
+            $review->genre = $request->genre;
+            $review->type = $request->type;
+            $review->rating = $request->rating;
+            $review->review = $request->review;
+            $review->picture = 'default-image.jpg';
+
+            $review->save();
+        }
+
+        
 
         return redirect('/review')->with('status', 'successfully added a review!');
     }
@@ -64,11 +82,12 @@ class ReviewController extends Controller
             ->get();
         return view('review.index', compact('review'));
     }
+
     public function cetak_pdf()
     {
-    	$review = Review::all();
- 
-    	$pdf = PDF::loadview('/review/review_pdf',['review'=>$review]);
-    	return $pdf->download('MiFi Review Data Report');
+        $review = Review::all();
+
+        $pdf = PDF::loadview('/review/review_pdf', compact('review'));
+        return $pdf->download('laporan-review-pdf.pdf');
     }
 }

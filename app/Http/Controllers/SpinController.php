@@ -57,13 +57,15 @@ class SpinController extends Controller
             ->orWhere([
                 ['rating', 'like', '%' . $search . '%']
             ])
+            ->orWhere([
+                ['type', 'like', '%' . $search . '%']
+            ])
             ->get();
             
         return view('spin.index', compact('review'));
     }
     public function indexx(Request $request)
     {
-        
         if(request()->ajax())
         {
             if(!empty($request->filter_genre))

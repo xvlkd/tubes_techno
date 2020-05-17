@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -58,7 +58,23 @@
         label {
             color: black;
             font-size: 16px;
+        }
 
+        .btn {
+            background-color: #faf2f2;
+            border: #faf2f2;
+            color: black;
+        }
+
+        .btn:hover {
+            background-color: red;
+        }
+
+        .badge{
+            background:whitesmoke; 
+            border: black;
+            color:black; 
+            font-size:13px;
         }
     </style>
 </head>
