@@ -1,9 +1,12 @@
 @extends('layouts.app')
+
+@section('title','Spin')
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h4><a href="/review" class="card-link">Kembali</a></h4>
+            <h4><a href="/spin" class="card-link">Kembali</a></h4>
             <h1 class="mt-4">Detail Review</h1>
             <div class="card">
                 <div class="card-header" style="background-color: black">

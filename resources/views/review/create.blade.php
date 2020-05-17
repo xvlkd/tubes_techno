@@ -1,9 +1,12 @@
 @extends('layouts.app')
+
+@section('title','Form Add Review')
+
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <a href="/review" class="card-link">Back</a>
+            <h4><a href="/review" class="card-link">Back</a></h4>
             <h1 class="mt-4">Form Add review</h1>
             <form method="POST" action="/review">
                 @csrf
@@ -46,7 +49,7 @@
                         <option value="10">10</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="review" style="color: white">Review</label>
                     <input type="text" class="form-control @error('review') is-invalid @enderror" id="review" placeholder="put your review here" name="review" value="{{ old('review') }}">
