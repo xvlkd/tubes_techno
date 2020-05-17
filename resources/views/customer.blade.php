@@ -15,14 +15,16 @@
 	<div class="row">
 		<div class="col-6">
 			<form action="/searchCustomer" method="get">
-                <div class="input-group">
-                    <input type="text" name="search" style="width: 50%;">
-                    <span class="input-group-prepend">
-                        <button type="submit" class="btn btn-primary" style="background-color: #035aa6; color:white">Search</button>
-                    </span>
-                </div>
+				<div class="input-group">
+					<input type="text" name="search" style="width: 50%;">
+					<span class="input-group-prepend">
+						<button type="submit" class="btn btn-primary" style="background-color: #035aa6; color:white">Search</button>
+					</span>
+				</div>
 			</form>
-			<a href="/customer" class="btn btn-primary my-3" style="background-color: #035aa6; color: white;">Refresh</a>
+			<a href="/customer" class="btn btn-primary my-3" style="background-color: #035aa6; color: white;">
+				<i class="material-icons">refresh</i>
+			</a>
 		</div>
 	</div>
 
@@ -49,9 +51,13 @@
 				<td>{{$p->telepon}}</td>
 				<td>{{$p->pekerjaan}}</td>
 				<td>
-					<a href="/customer/edit/{{ $p->id }}" class="badge" style="background-color: green; color:white">Edit</a>
+					<a href="/customer/edit/{{ $p->id }}" class="badge" style="background-color: green; color:white">
+						<i class="material-icons">edit</i>
+					</a>
 					|
-					<a href="/customer/hapus/{{ $p->id }}" class="badge" style="background-color: red; color:white">Delete</a>
+					<a href="/customer/hapus/{{ $p->id }}" class="badge" style="background-color: red; color:white">
+						<i class="material-icons">delete</i>
+					</a>
 				</td>
 			</tr>
 			@endforeach
